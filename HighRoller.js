@@ -1,23 +1,36 @@
 var die = {
-    size:6,
-    roll: function(dieSize) {
-        var result = Math.ceil(this.size * Math.random());
-        return result;
-    }
+   size: 6,
+   roll: function () {
+      var result = Math.ceil(this.size * Math.random());
+      return result;
+   }
 };
 
-var totalResult=0;
-
-die.size = process.argv[2];
-
-for (totalRolls= 0; (totalRolls< process.argv[3]); totalRolls++) {
-   var result=Math.ceil(die.size * Math.random());
-   console.log(result) 
-   totalResult+=result
+function start() {
+   die.size = process.argv[2];
+   rollDice(process.argv[3]);
 }
 
-var average=totalResult/totalRolls;
+function rollDice(rolls) {
 
-console.log("The die was rolled (" + totalRolls + ") time(s)");
-console.log("You rolled a total of ("+ totalResult+ ")" );
-console.log("You rolled an average of("+average+")");
+   var resultList = {};
+   var totalResult = 0;
+   
+   for (totalRolls = 0; totalRolls < rolls; totalRolls++) {
+      var result = die.roll();
+      resultList["Roll "+(totalRolls+1)] = result;
+      totalResult += result
+      
+   }
+
+   var average = totalResult / totalRolls;
+
+   resultList.totalRolls=totalRolls;
+   resultList.totalResult=totalResult;
+   resultList.average=average
+
+   return (resultList);
+}
+
+exports.rollDice = rollDice;
+exports.die = die;

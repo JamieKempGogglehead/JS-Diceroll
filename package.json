@@ -1,0 +1,22 @@
+{
+  "name": "js-diceroll",
+  "version": "1.0.0",
+  "description": "Dice Roller",
+  "main": "HighRoller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamieKempGogglehead/JS-Diceroll.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JamieKempGogglehead/JS-Diceroll/issues"
+  },
+  "homepage": "https://github.com/JamieKempGogglehead/JS-Diceroll#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
